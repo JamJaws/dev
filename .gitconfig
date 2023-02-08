@@ -1,0 +1,20 @@
+[user]
+	name = John Mogensen
+[alias]
+	st = status
+	co = checkout
+	br = branch
+	ci = commit
+	lg = log --graph --decorate --oneline --all
+	lgm = log --graph --decorate --pretty=medium --abbrev-commit --all
+	pr = pull --rebase
+	pfwl = push --force-with-lease
+	rec = rebase --continue
+[init]
+	defaultBranch = main
+[pull]
+	ff = only
+[fetch]
+	prune = true
+[merge]
+	ff = only
