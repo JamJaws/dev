@@ -57,3 +57,6 @@ compinit
 
 # kubectl autocompletion
 source <(kubectl completion zsh)
+
+bindkey "^[^[[C" forward-word # opt + ->
+bindkey "^[^[[D" backward-word # opt + <-
