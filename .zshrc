@@ -14,6 +14,7 @@ zgenom autoupdate
 if ! zgenom saved; then
   echo "Creating a zgenom save"
 
+  # Add this if you experience issues with missing completions or errors mentioning compdef.
   zgenom compdef
 
   # If zsh-syntax-highlighting is bundled after zsh-history-substring-search,
