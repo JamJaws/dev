@@ -11,8 +11,8 @@
 	pfwl = push --force-with-lease
 	rec = rebase --continue
 	can = commit --amend --no-edit
-	remain = !git fetch origin main:main && git rebase main && :
-	remaster = !git fetch origin master:master && git rebase master && :
+	remain = !git fetch origin main:main && git rebase main
+	remaster = !git fetch origin master:master && git rebase master
 [init]
 	defaultBranch = main
 [pull]
