@@ -13,6 +13,7 @@
 	can = commit --amend --no-edit
 	remain = !git fetch origin main:main && git rebase main
 	remaster = !git fetch origin master:master && git rebase master
+	delete-branches = !git branch | grep -v \"master\\|main\" | xargs git branch -D
 [init]
 	defaultBranch = main
 [pull]
