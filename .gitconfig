@@ -13,7 +13,8 @@
 	can = commit --amend --no-edit
 	remain = !git fetch origin main:main && git rebase main
 	remaster = !git fetch origin master:master && git rebase master
-	delete-gone-branches = !"git branch -vv | grep -E '\\[origin/.+: gone\\]' | awk '{print $1}' | grep -vE '^main|^master|^\\*'" | xargs git branch -D
+	pushup = !git push --set-upstream origin $(git branch --show-current)
+	prune = !"git branch -vv | grep -E '\\[origin/.+: gone\\]' | awk '{print $1}' | grep -vE '^main|^master|^\\*'" | xargs git branch -D
 [init]
 	defaultBranch = main
 [pull]
