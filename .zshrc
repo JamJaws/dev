@@ -21,16 +21,9 @@ if ! zgenom saved; then
   # they break, so get the order right.
   zgenom load zdharma-continuum/fast-syntax-highlighting
   zgenom load zsh-users/zsh-history-substring-search
-
   zgenom load zsh-users/zsh-autosuggestions
-
   # completions
   zgenom load zsh-users/zsh-completions
-
-  # Set keystrokes for substring searching
-  zmodload zsh/terminfo
-  bindkey "$terminfo[kcuu1]" history-substring-search-up
-  bindkey "$terminfo[kcud1]" history-substring-search-down
 
   zgenom load djui/alias-tips
   zgenom load peterhurford/git-it-on.zsh
@@ -44,20 +37,25 @@ if ! zgenom saved; then
   zgenom save
   # Compile your zsh files
   zgenom compile "$HOME/.zshrc"
-
 fi
+
+# Set keystrokes for substring searching
+# cat -v to observe key codes
+bindkey '^[[A' history-substring-search-up # up arrow
+bindkey '^[[B' history-substring-search-down # down arrow
 
 # fzf
 export FZF_DEFAULT_COMMAND="find . -maxdepth 1"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+source <(fzf --zsh)
+
+# kubectl autocompletion
+source <(kubectl completion zsh)
 
 # completions
 autoload -Uz compinit
 compinit
 
-# kubectl autocompletion
-source <(kubectl completion zsh)
-
-bindkey "^[^[[C" forward-word # opt + ->
-bindkey "^[^[[D" backward-word # opt + <-
+bindkey "^[[1;3C" forward-word # opt + ->
+bindkey "^[[1;3D" backward-word # opt + <-
