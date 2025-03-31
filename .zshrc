@@ -39,6 +39,8 @@ if ! zgenom saved; then
   zgenom compile "$HOME/.zshrc"
 fi
 
+eval "$(zoxide init zsh)"
+
 # Set keystrokes for substring searching
 # cat -v to observe key codes
 bindkey '^[[A' history-substring-search-up # up arrow
