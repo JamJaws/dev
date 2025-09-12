@@ -2,6 +2,12 @@
 
 My dev config files etc.
 
+Update `.zshrc`
+
+```
+source "${HOME}/jamjaws/dev/.zshrc"
+```
+
 ## Shell setup
 
 #### ZSH Theme
