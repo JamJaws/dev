@@ -40,7 +40,7 @@ if ! zgenom saved; then
   zgenom compile "$HOME/.zshrc"
 fi
 
-eval "$(zoxide init zsh)"
+eval "$(zoxide init zsh --cmd cd)"
 
 # Set keystrokes for substring searching
 # cat -v to observe key codes
