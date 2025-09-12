@@ -1,3 +1,5 @@
+alias k=kubectl
+
 # brew completions
 # https://docs.brew.sh/Shell-Completion#configuring-completions-in-zsh
 if type brew &>/dev/null; then
@@ -28,7 +30,6 @@ if ! zgenom saved; then
   zgenom load djui/alias-tips
   zgenom load peterhurford/git-it-on.zsh
   zgenom ohmyzsh plugins/git
-  zgenom load supercrabtree/k
 
   # Install ohmyzsh osx plugin if on macOS
   [[ "$(uname -s)" = Darwin ]] && zgenom ohmyzsh plugins/macos
