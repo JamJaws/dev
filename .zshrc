@@ -62,3 +62,13 @@ compinit
 
 bindkey "^[[1;3C" forward-word # opt + ->
 bindkey "^[[1;3D" backward-word # opt + <-
+
+
+kdecode() {
+  local secret="$1"
+  shift
+  kubectl get secret "$secret" -o json "$@" \
+    | jq -r '.data
+              | to_entries[]
+              | "\(.key): \(.value | @base64d)"'
+}
