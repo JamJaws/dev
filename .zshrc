@@ -37,6 +37,9 @@ if ! zgenom saved; then
   # Install ohmyzsh osx plugin if on macOS
   [[ "$(uname -s)" = Darwin ]] && zgenom ohmyzsh plugins/macos
 
+  # kubectl completions
+  zgenom load ohmyzsh plugins/kubectl
+
   # save all to init script
   zgenom save
   # Compile your zsh files
@@ -58,9 +61,6 @@ compinit
 export FZF_DEFAULT_COMMAND="find . -maxdepth 1"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 source <(fzf --zsh)
-
-# kubectl autocompletion
-source <(kubectl completion zsh)
 
 
 bindkey "^[[1;3C" forward-word # opt + ->
