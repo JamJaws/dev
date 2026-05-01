@@ -1,3 +1,6 @@
+setopt AUTO_CD
+setopt HIST_IGNORE_DUPS
+
 alias k=kubectl
 
 # brew completions
@@ -47,18 +50,18 @@ eval "$(zoxide init zsh --cmd cd)"
 bindkey '^[[A' history-substring-search-up # up arrow
 bindkey '^[[B' history-substring-search-down # down arrow
 
+# completions
+autoload -Uz compinit
+compinit
+
 # fzf
 export FZF_DEFAULT_COMMAND="find . -maxdepth 1"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-# [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 source <(fzf --zsh)
 
 # kubectl autocompletion
 source <(kubectl completion zsh)
 
-# completions
-autoload -Uz compinit
-compinit
 
 bindkey "^[[1;3C" forward-word # opt + ->
 bindkey "^[[1;3D" backward-word # opt + <-
